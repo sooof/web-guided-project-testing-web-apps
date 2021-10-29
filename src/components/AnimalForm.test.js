@@ -39,7 +39,17 @@ test("Displays species when user fills in all fields and submits", ()=> {
     // 8. Click our button.
 
     //Assert:
-    const output = screen.queryByText(/feline/i);
+    // const output = screen.queryByText(/feline/i);
+    //setTimeout
+    // const output = screen.findByText(/feline/i);
+    // console.log(output);
+
+    // Promise find way
+    const outputP = screen.findByText(/feline/i);
+    outputP.then(output=>  {
+        console.log(output);
+    })
+    
     //  Displays species typed
 
     expect(output).toBeInTheDocument();
