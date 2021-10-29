@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen} from '@testing-library/react';
+import { render, screen, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import AnimalForm from './AnimalForm';
 
@@ -8,7 +8,7 @@ test("renders without errors", ()=> {
 
 })
 
-test("Displays species when user fills in all fields and submits", ()=> {
+test("Displays species when user fills in all fields and submits", async ()=> {
     //Arrange: render AnimalForm
     render(<AnimalForm/>);
     //Act:
@@ -45,14 +45,20 @@ test("Displays species when user fills in all fields and submits", ()=> {
     // console.log(output);
 
     // Promise find way
-    const outputP = screen.findByText(/feline/i);
-    outputP.then(output=>  {
-        console.log(output);
-    })
+    // const outputP = screen.findByText(/feline/i);
+    // outputP.then(output=>  {
+    //     console.log(output);
+    // })
     
-    //  Displays species typed
+    // //  Displays species typed
 
-    expect(output).toBeInTheDocument();
-    expect(output).toHaveTextContent("feline");
-    expect(output).not.toBeFalsy();
+    // expect(output).toBeInTheDocument();
+    // expect(output).toHaveTextContent("feline");
+    // expect(output).not.toBeFalsy();
+
+        //Wait for way
+    await waitFor(()=> {
+        const output = screen.queryByText(/feline/i);
+        expect(output).toBeInTheDocument();
+    })
 });

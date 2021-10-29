@@ -23,11 +23,11 @@ const AnimalForm = ({ errors, touched, values }) => {
       ...animal,
       id: Date.now()
     };
-    // setAnimals([...animals, newAnimal]);
+    setAnimals([...animals, newAnimal]);
     // Promise find way
-    setTimeout(()=> {
-      setAnimals([...animals, newAnimal]);
-    }, 3000);
+    // setTimeout(()=> {
+    //   setAnimals([...animals, newAnimal]);
+    // }, 3000);
     console.log("AnimalForm handleSubmit = ", animals)
   };
 
