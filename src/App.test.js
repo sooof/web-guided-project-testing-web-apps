@@ -34,10 +34,12 @@ test("displays header when component mounts", ()=> {
 
     //query: if an element does not exist returns a null
     // const header = screen.queryByText('Add New Animal'); 
+    // const header = screen.queryByText('Add New Animal'===/add new animal/i); 
+    const header = screen.queryAllByText(/Add New Animal/i); 
     // const header = screen.getByText('Add New Animali');
     // const header = screen.findByText('Add New Animal');
-    const header = screen.queryByTestId('headerElm');
-    console.log("header ", header);
+    // const header = screen.queryByTestId('headerElm');
+    console.log("header i=", header.length);
 
     //get: if an element does not exist returns fails
     // const header = screen.getByText('Add Old Animal');
@@ -46,9 +48,11 @@ test("displays header when component mounts", ()=> {
     // const header = screen.findByText('Add New Animal');
 
    //Assert: Confirm that the header exists
-    expect(header).toBeInTheDocument();
+    // expect(header).toBeInTheDocument();
     expect(header).toBeTruthy();
-    expect(header).toHaveTextContent(/add new animal/i);
-    expect(header).not.toBeFalsy();
-
+    expect(header[1]).toHaveTextContent(/add new animal/i);
+    expect(header[1]).not.toBeFalsy();
+    expect(header.length).toBe(3)
+    const value = 2
+    expect(value).toBe(2)
 })

@@ -16,6 +16,8 @@ function App() {
   return (
     <div className="App">
       <h1 data-testid="headerElm">Add New Animal</h1>
+      <h1 data-testid="headerElm">Add New Animal</h1>
+      <h1 data-testid="headerElm">Add New Animal</h1>
       <AnimalForm />
     </div>
   );
