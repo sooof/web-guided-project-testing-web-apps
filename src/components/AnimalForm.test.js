@@ -38,11 +38,16 @@ test("Renders new species when submitting with all fields filled",  ()=> {
     userEvent.click(button);
 
     //Assert: Species should be renders in our current animals list
-    const speciesFeedback = screen.queryByText("feline");
-    // console.log(speciesFeedback)
-    expect(speciesFeedback).toBeInTheDocument();
-    expect(speciesFeedback).toBeTruthy();
-    expect(speciesFeedback).not.toBeFalsy();
+    // const speciesFeedback = screen.queryByText("feline");
+    const speciesFeedback = screen.findByText("feline");
+    // console.log(speciesFeedback) 
+    speciesFeedback.then( speciesFeed => {
+        console.log(speciesFeed)
+    })
+
+    // expect(speciesFeedback).toBeInTheDocument();
+    // expect(speciesFeedback).toBeTruthy();
+    // expect(speciesFeedback).not.toBeFalsy();
 
 
 })
