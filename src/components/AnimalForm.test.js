@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import AnimalForm from './AnimalForm';
@@ -51,7 +51,11 @@ test("Renders new species when submitting with all fields filled",  async ()=> {
     const speciesFeedback = await screen.findByText("feline");
     expect(speciesFeedback).toBeInTheDocument();
 
-
+    // M 4 WaitFor Way:
+    await waitFor(()=> {
+        const speciesFeedback = screen.queryByText("feline");
+        expect(speciesFeedback).toBeInTheDocument();
+    });
     // expect(speciesFeedback).toBeInTheDocument();
     // expect(speciesFeedback).toBeTruthy();
     // expect(speciesFeedback).not.toBeFalsy();
