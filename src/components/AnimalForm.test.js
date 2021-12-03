@@ -38,9 +38,11 @@ test("Renders new species when submitting with all fields filled",  ()=> {
     userEvent.click(button);
 
     //Assert: Species should be renders in our current animals list
+    // M 1
     // const speciesFeedback = screen.queryByText("feline");
-    const speciesFeedback = screen.findByText("feline");
     // console.log(speciesFeedback) 
+    // M 2 Promise Way:
+    const speciesFeedback = screen.findByText("feline");
     speciesFeedback.then( speciesFeed => {
         console.log(speciesFeed)
     })
