@@ -13,7 +13,7 @@ test("displays header when component mounts", () => {
     console.log("inside of test");
 })
 
-test("Renders new species when submitting with all fields filled",  ()=> {
+test("Renders new species when submitting with all fields filled",  async ()=> {
     //Arrange: render my component
     render(<AnimalForm/>);
 
@@ -42,10 +42,15 @@ test("Renders new species when submitting with all fields filled",  ()=> {
     // const speciesFeedback = screen.queryByText("feline");
     // console.log(speciesFeedback) 
     // M 2 Promise Way:
-    const speciesFeedback = screen.findByText("feline");
-    speciesFeedback.then( speciesFeed => {
-        console.log(speciesFeed)
-    })
+    // const speciesFeedback = screen.findByText("feline");
+    // speciesFeedback.then( speciesFeed => {
+    //     console.log(speciesFeed)
+    // })
+
+    // M 3 Async/Await Way:
+    const speciesFeedback = await screen.findByText("feline");
+    expect(speciesFeedback).toBeInTheDocument();
+
 
     // expect(speciesFeedback).toBeInTheDocument();
     // expect(speciesFeedback).toBeTruthy();
