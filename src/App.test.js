@@ -55,4 +55,5 @@ test("displays header when component mounts", ()=> {
     expect(header.length).toBe(3)
     const value = 2
     expect(value).toBe(2)
+    expect(value===3).toBeFalsy()
 })
