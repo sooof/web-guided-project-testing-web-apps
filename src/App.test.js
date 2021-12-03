@@ -33,9 +33,10 @@ test("displays header when component mounts", ()=> {
     //Act: Find our header on the screen
 
     //query: if an element does not exist returns a null
-    const header = screen.queryByText('Add New Animal'); 
+    // const header = screen.queryByText('Add New Animal'); 
     // const header = screen.getByText('Add New Animali');
-    // const header = screen.findByText('Add New Animalin');
+    // const header = screen.findByText('Add New Animal');
+    const header = screen.queryByTestId('headerElm');
     console.log("header ", header);
 
     //get: if an element does not exist returns fails
@@ -45,9 +46,9 @@ test("displays header when component mounts", ()=> {
     // const header = screen.findByText('Add New Animal');
 
    //Assert: Confirm that the header exists
-    // expect(header).toBeInTheDocument();
-    // expect(header).toBeTruthy();
+    expect(header).toBeInTheDocument();
+    expect(header).toBeTruthy();
     expect(header).toHaveTextContent(/add new animal/i);
-    // expect(header).not.toBeFalsy();
+    expect(header).not.toBeFalsy();
 
 })

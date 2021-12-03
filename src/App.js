@@ -15,7 +15,7 @@ function App() {
   // console.log(f())
   return (
     <div className="App">
-      <h1>Add New Animal</h1>
+      <h1 data-testid="headerElm">Add New Animal</h1>
       <AnimalForm />
     </div>
   );
