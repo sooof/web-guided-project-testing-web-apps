@@ -27,7 +27,15 @@ const doSomeCalls = () => {
   })
 }
 
-doSomeCalls()
+// doSomeCalls()
+
+const doSomeAsyncCalls = async () => {
+  const resp1 =await axios("www.google.com/1")
+  const resp2 =await axios("www.google.com/2")
+  const resp3 =await axios("www.google.com/3")
+  console.log("async", resp1, resp2, resp3);
+}
+doSomeAsyncCalls()
 
 function App() {
   return (
