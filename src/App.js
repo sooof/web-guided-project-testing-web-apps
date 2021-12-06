@@ -12,9 +12,22 @@ const axios = (url) => {
     }, 3000)
   })
 }
-axios("www.google.com").then(resp => {
-  console.log(resp);
-})
+// axios("www.google.com").then(resp => {
+//   console.log(resp);
+// })
+
+const doSomeCalls = () => {
+  axios("www.google.com/1").then((resp1) => {
+    axios("www.google.com/2").then((resp2) => {
+      axios("www.google.com/3").then((resp3) => {
+          console.log(resp1, resp2, resp3)
+      })
+    })
+    // console.log(resp1)
+  })
+}
+
+doSomeCalls()
 
 function App() {
   return (
