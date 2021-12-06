@@ -1,17 +1,18 @@
 import React from "react";
 import AnimalForm from "./components/AnimalForm";
+import axios from 'axios';
 
 import "./App.css";
-const axios = (url) => {
-  return new Promise((resolve, reject)=>{
-    setTimeout(()=>{
-      resolve({
-        url: url,
-        status: "success"
-      })
-    }, 3000)
-  })
-}
+// const axios = (url) => {
+//   return new Promise((resolve, reject)=>{
+//     setTimeout(()=>{
+//       resolve({
+//         url: url,
+//         status: "success"
+//       })
+//     }, 3000)
+//   })
+// }
 // axios("www.google.com").then(resp => {
 //   console.log(resp);
 // })
@@ -37,6 +38,12 @@ const doSomeAsyncCalls = async () => {
 }
 doSomeAsyncCalls()
 
+const getDogImages = () => {
+  axios.get(`https://dog.ceo/api/breed/hound/images`).then((dogs) => {
+    console.log(dogs);
+  })
+}
+getDogImages()
 function App() {
   return (
     <div className="App">
